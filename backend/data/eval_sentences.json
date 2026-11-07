@@ -1,0 +1,22 @@
+[
+  {"category": "everyday", "en": "I will come to your house tomorrow morning.", "hi": "मैं कल सुबह तुम्हारे घर आऊँगा।", "mr": "मी उद्या सकाळी तुझ्या घरी येईन."},
+  {"category": "everyday", "en": "What time does the last train leave?", "hi": "आखिरी ट्रेन कितने बजे जाती है?", "mr": "शेवटची ट्रेन किती वाजता सुटते?"},
+  {"category": "everyday", "en": "My mother cooks very good food.", "hi": "मेरी माँ बहुत अच्छा खाना बनाती है।", "mr": "माझी आई खूप छान स्वयंपाक करते."},
+  {"category": "everyday", "en": "The children are playing in the garden.", "hi": "बच्चे बगीचे में खेल रहे हैं।", "mr": "मुले बागेत खेळत आहेत."},
+  {"category": "everyday", "en": "Please close the window, it is very cold today.", "hi": "कृपया खिड़की बंद कर दीजिए, आज बहुत ठंड है।", "mr": "कृपया खिडकी बंद करा, आज खूप थंडी आहे."},
+  {"category": "everyday", "en": "We need to buy vegetables from the market.", "hi": "हमें बाज़ार से सब्ज़ियाँ खरीदनी हैं।", "mr": "आपल्याला बाजारातून भाज्या विकत घ्यायच्या आहेत."},
+  {"category": "news", "en": "The government announced a new scheme for farmers.", "hi": "सरकार ने किसानों के लिए एक नई योजना की घोषणा की।", "mr": "सरकारने शेतकऱ्यांसाठी एका नव्या योजनेची घोषणा केली."},
+  {"category": "news", "en": "Heavy rain has caused floods in several districts.", "hi": "भारी बारिश से कई जिलों में बाढ़ आ गई है।", "mr": "मुसळधार पावसामुळे अनेक जिल्ह्यांमध्ये पूर आला आहे."},
+  {"category": "news", "en": "The price of petrol increased again this week.", "hi": "इस हफ़्ते पेट्रोल की कीमत फिर बढ़ गई।", "mr": "या आठवड्यात पेट्रोलची किंमत पुन्हा वाढली."},
+  {"category": "news", "en": "India won the cricket match by five wickets.", "hi": "भारत ने क्रिकेट मैच पाँच विकेट से जीत लिया।", "mr": "भारताने क्रिकेटचा सामना पाच गडी राखून जिंकला."},
+  {"category": "health", "en": "You should drink eight glasses of water every day.", "hi": "आपको हर दिन आठ गिलास पानी पीना चाहिए।", "mr": "तुम्ही दररोज आठ ग्लास पाणी प्यायला हवे."},
+  {"category": "health", "en": "Regular exercise keeps the heart healthy.", "hi": "नियमित व्यायाम दिल को स्वस्थ रखता है।", "mr": "नियमित व्यायामामुळे हृदय निरोगी राहते."},
+  {"category": "education", "en": "Students must submit their projects by Friday.", "hi": "छात्रों को अपनी परियोजनाएँ शुक्रवार तक जमा करनी होंगी।", "mr": "विद्यार्थ्यांनी आपले प्रकल्प शुक्रवारपर्यंत जमा करणे आवश्यक आहे."},
+  {"category": "education", "en": "Reading books improves our knowledge and imagination.", "hi": "किताबें पढ़ने से हमारा ज्ञान और कल्पनाशक्ति बढ़ती है।", "mr": "पुस्तके वाचल्याने आपले ज्ञान आणि कल्पनाशक्ती वाढते."},
+  {"category": "technical", "en": "The computer stores all the data on its hard disk.", "hi": "कंप्यूटर सारा डेटा अपनी हार्ड डिस्क पर संग्रहित करता है।", "mr": "संगणक सर्व माहिती त्याच्या हार्ड डिस्कवर साठवतो."},
+  {"category": "technical", "en": "Artificial intelligence can translate languages quickly.", "hi": "कृत्रिम बुद्धिमत्ता भाषाओं का अनुवाद जल्दी कर सकती है।", "mr": "कृत्रिम बुद्धिमत्ता भाषांचे भाषांतर वेगाने करू शकते."},
+  {"category": "idiom", "en": "It is raining cats and dogs outside.", "hi": "बाहर मूसलाधार बारिश हो रही है।", "mr": "बाहेर मुसळधार पाऊस पडत आहे."},
+  {"category": "idiom", "en": "He kicked the bucket last year.", "hi": "पिछले साल उसका निधन हो गया।", "mr": "गेल्या वर्षी त्याचे निधन झाले."},
+  {"category": "polite", "en": "Could you please help me find this address?", "hi": "क्या आप यह पता ढूँढने में मेरी मदद कर सकते हैं?", "mr": "कृपया हा पत्ता शोधण्यात तुम्ही मला मदत कराल का?"},
+  {"category": "polite", "en": "Thank you very much for your kindness.", "hi": "आपकी दयालुता के लिए बहुत-बहुत धन्यवाद।", "mr": "तुमच्या दयाळूपणाबद्दल खूप खूप धन्यवाद."}
+]
