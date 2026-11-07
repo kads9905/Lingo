@@ -55,7 +55,7 @@ The first build takes around 10 to 20 minutes. It is ready when `https://YOUR_NA
 ## 4. Frontend on Vercel
 
 1. In Vercel choose **Add New → Project** and import the repository.
-2. Leave **Root Directory** as it is. The `vercel.json` in the repository sets the build.
+2. Set **Root Directory** to `frontend`. The `frontend/vercel.json` file sets the build.
 3. Add the environment variable `VITE_API_URL` with your Render URL and no trailing slash.
 4. Deploy.
 

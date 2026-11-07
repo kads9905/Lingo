@@ -20,7 +20,7 @@ It also shows MarianMT's cross-attention and beam probabilities, and generates i
 
 ```
 Encode-decode/
-├── frontend/              Deploy to Vercel (configured by vercel.json)
+├── frontend/              Deploy to Vercel (Root Directory: frontend)
 │   └── src/
 ├── backend/               Deploy to Render (rootDir: backend, set in render.yaml)
 │   ├── app/               FastAPI app, prompts, guardrails, LLM calls
@@ -32,7 +32,6 @@ Encode-decode/
 │   └── requirements.txt   Render installs only this light list
 ├── docs/                  Report, deployment guide, demo script
 ├── render.yaml            Render blueprint
-├── vercel.json            Vercel build settings
 └── MODEL_CARD.md
 ```
 
