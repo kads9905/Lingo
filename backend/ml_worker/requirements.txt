@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0
+transformers==5.17.0
+diffusers==0.39.0
+accelerate
+sentencepiece
+sacremoses
+pillow
+fastapi
+uvicorn[standard]
