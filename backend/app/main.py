@@ -101,13 +101,20 @@ def _check_options(tone, technique):
 
 
 def _score(source, candidate):
-    candidate["adequacy"] = ml_client.adequacy(source, candidate["translation"])["score"]
+    """The meaning check is optional: without the models, the translation still returns."""
+    try:
+        candidate["adequacy"] = ml_client.adequacy(source, candidate["translation"])["score"]
+    except ml_client.ModelError:
+        candidate["adequacy"] = None
     candidate["warnings"] = guardrails.check_output(candidate["translation"], candidate["adequacy"])[1]
     return candidate
 
 
 def _seq2seq(text, lang):
-    return _score(text, ml_client.translate(text, lang))
+    try:
+        return _score(text, ml_client.translate(text, lang))
+    except ml_client.ModelError as error:
+        return {"error": str(error)}
 
 
 def _llm(text, lang, tone, technique, provider):
@@ -222,17 +229,21 @@ async def bias_probe(body: ProbeBody):
             return {"error": str(error)}
         return {"translation": reply, "gender": bias.detect_gender(reply, body.lang)}
 
+    def run_seq2seq():
+        try:
+            output = ml_client.translate(text, body.lang)["translation"]
+        except ml_client.ModelError as error:
+            return {"error": str(error)}
+        return {"translation": output, "gender": bias.detect_gender(output, body.lang)}
+
     seq2seq, plain, fair = await asyncio.gather(
-        asyncio.to_thread(ml_client.translate, text, body.lang),
+        asyncio.to_thread(run_seq2seq),
         asyncio.to_thread(run_llm, False),
         asyncio.to_thread(run_llm, True),
     )
     return {
         "sentence": text,
-        "seq2seq": {
-            "translation": seq2seq["translation"],
-            "gender": bias.detect_gender(seq2seq["translation"], body.lang),
-        },
+        "seq2seq": seq2seq,
         "llm": plain,
         "llm_fair": fair,
     }

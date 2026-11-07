@@ -202,9 +202,11 @@ function CandidateCard({
           {candidate.warnings?.map((warning) => <Notice key={warning}>{warning}</Notice>)}
           <footer>
             <span className="metrics">
-              <span title="Meaning match between the English and this translation">
-                Match <b>{candidate.adequacy?.toFixed(2)}</b>
-              </span>
+              {candidate.adequacy != null && (
+                <span title="Meaning match between the English and this translation">
+                  Match <b>{candidate.adequacy.toFixed(2)}</b>
+                </span>
+              )}
               <span>
                 <b>{((candidate.latency_ms ?? 0) / 1000).toFixed(2)}</b> s
               </span>

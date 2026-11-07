@@ -28,7 +28,10 @@ def _post(path, payload):
 
 
 def _engine():
-    from ml_worker import engine
+    try:
+        from ml_worker import engine
+    except ImportError as error:
+        raise ModelError("The translation models are not connected. Set ML_WORKER_URL on the server.") from error
 
     return engine
 

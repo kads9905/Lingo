@@ -123,7 +123,7 @@ def build_html():
         f'{adequacy["true_pass_pct"]}% of correct ones (AUC {adequacy["auc"]}). That is an easy test. On MarianMT\'s '
         f'{adequacy["real_failures_total"]} lowest-BLEU outputs it flagged only {adequacy["real_failures_flagged"]}, '
         "so it stops unrelated text but misses translations that are wrong yet on topic, such as a literal idiom. "
-        "Not every low-BLEU output is wrong, but this guardrail must not be treated as an accuracy check.</p>'
+        "Not every low-BLEU output is wrong, but this guardrail must not be treated as an accuracy check.</p>"
         if adequacy
         else ""
     )

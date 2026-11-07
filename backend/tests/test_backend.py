@@ -3,7 +3,9 @@ from types import SimpleNamespace
 
 import pytest
 
-from app import bias, guardrails, llm
+from fastapi.testclient import TestClient
+
+from app import bias, guardrails, llm, main, ml_client
 from app.prompts import FEW_SHOT, REGISTERS, build_messages
 
 
@@ -96,3 +98,19 @@ def test_missing_key_and_http_errors_are_friendly(monkeypatch):
     monkeypatch.setattr(llm.httpx, "post", fake_post({}, [], status=429))
     with pytest.raises(llm.LLMError, match="rate limit"):
         llm.complete(build_messages("Hello", "hi"))
+
+
+def test_translate_survives_missing_models(monkeypatch):
+    def unavailable(*_):
+        raise ml_client.ModelError("not connected")
+
+    monkeypatch.setattr(ml_client, "translate", unavailable)
+    monkeypatch.setattr(ml_client, "adequacy", unavailable)
+    reply = {"translation": "नमस्ते", "latency_ms": 5, "provider": "groq", "model": "test"}
+    monkeypatch.setattr(llm, "complete", lambda *_: dict(reply))
+
+    response = TestClient(main.app).post("/api/translate", json={"text": "Hello", "lang": "hi"})
+    assert response.status_code == 200
+    body = response.json()
+    assert body["seq2seq"]["error"] == "not connected"
+    assert body["llm"]["translation"] == "नमस्ते" and body["llm"]["adequacy"] is None

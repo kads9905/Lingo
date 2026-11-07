@@ -7,7 +7,7 @@ export type Lang = "hi" | "mr";
 export interface Candidate {
   translation?: string;
   latency_ms?: number;
-  adequacy?: number;
+  adequacy?: number | null;
   warnings?: string[];
   error?: string;
   model?: string;
