@@ -1,0 +1,76 @@
+{
+ "n_pairs": 40,
+ "mean_correct": 0.905,
+ "mean_wrong": 0.009,
+ "lowest_correct": 0.554,
+ "highest_wrong": 0.086,
+ "floor": 0.55,
+ "true_pass_pct": 100.0,
+ "wrong_caught_pct": 100.0,
+ "auc": 1.0,
+ "real_failures_flagged": 1,
+ "real_failures_total": 10,
+ "real_failures": [
+  {
+   "source": "He kicked the bucket last year.",
+   "output": "उन्होंने कहा कि पिछले साल उसनेच को लात मारी।",
+   "score": 0.819,
+   "flagged": false
+  },
+  {
+   "source": "Regular exercise keeps the heart healthy.",
+   "output": "नियमित तौर पर कसरत करने से दिल स्वस्थ रहता है ।",
+   "score": 0.891,
+   "flagged": false
+  },
+  {
+   "source": "Students must submit their projects by Friday.",
+   "output": "विद्यार्थियों को शुक्रवार तक अपनी परियोजना के अधीन होना चाहिए ।",
+   "score": 0.862,
+   "flagged": false
+  },
+  {
+   "source": "It is raining cats and dogs outside.",
+   "output": "यह बाहर बंदर और कुत्तों बारिश कर रहा है.",
+   "score": 0.725,
+   "flagged": false
+  },
+  {
+   "source": "We need to buy vegetables from the market.",
+   "output": "हम बाजार से सब्ज़ियाँ खरीदने की जरूरत है.",
+   "score": 0.989,
+   "flagged": false
+  },
+  {
+   "source": "Reading books improves our knowledge and imagination.",
+   "output": "( स्तो.",
+   "score": 0.258,
+   "flagged": true
+  },
+  {
+   "source": "Students must submit their projects by Friday.",
+   "output": "विद्यार्थ्यांनी शुक्रवार आपल्या प्रकल्पांचे पालन केले पाहिजे.",
+   "score": 0.852,
+   "flagged": false
+  },
+  {
+   "source": "What time does the last train leave?",
+   "output": "शेवटला रेल्वेचा प्रवास केव्हा सुरू होतो?",
+   "score": 0.879,
+   "flagged": false
+  },
+  {
+   "source": "He kicked the bucket last year.",
+   "output": "त्याने मागच्या वर्षी बाटलीत एक बूट घातली.",
+   "score": 0.605,
+   "flagged": false
+  },
+  {
+   "source": "India won the cricket match by five wickets.",
+   "output": "भारताने पाच विस्कटांनी क्रिकेटचे भाग जिंकले.",
+   "score": 0.953,
+   "flagged": false
+  }
+ ],
+ "best_threshold": 0.554
+}

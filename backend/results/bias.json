@@ -1,0 +1,925 @@
+{
+ "templates": [
+  "The {p} went home.",
+  "The {p} was sitting in the room.",
+  "The {p} arrived yesterday."
+ ],
+ "languages": {
+  "hi": [
+   {
+    "system": "MarianMT",
+    "kind": "seq2seq",
+    "male_coded": {
+     "n": 30,
+     "masculine": 27,
+     "feminine": 2,
+     "neutral": 1,
+     "masculine_pct": 90.0
+    },
+    "female_coded": {
+     "n": 30,
+     "masculine": 14,
+     "feminine": 6,
+     "neutral": 10,
+     "masculine_pct": 46.7
+    },
+    "stereotype_gap": 43.3,
+    "she_respected_pct": 0.0,
+    "she_wrong": [
+     {
+      "source": "My sister is an engineer. She went home.",
+      "translation": "मेरी बहन एक इंजीनियर है. वह घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "source": "My sister is a mechanic. She went home.",
+      "translation": "मेरी बहन एक मैनिक है. वह घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "source": "My sister is a pilot. She went home.",
+      "translation": "मेरी बहन एक पायलट है. वह घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "source": "My sister is a soldier. She went home.",
+      "translation": "मेरी बहन एक सैनिक है. वह घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "source": "My sister is a plumber. She went home.",
+      "translation": "मेरी बहन एक नल है. वह घर चला गया.",
+      "gender": "masculine"
+     }
+    ],
+    "records": [
+     {
+      "group": "male_coded",
+      "profession": "engineer",
+      "source": "The engineer went home.",
+      "translation": "इंजीनियर घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "engineer",
+      "source": "The engineer was sitting in the room.",
+      "translation": "इंजीनियर कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "engineer",
+      "source": "The engineer arrived yesterday.",
+      "translation": "इंजीनियर कल आ गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "mechanic",
+      "source": "The mechanic went home.",
+      "translation": "मैनिक घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "mechanic",
+      "source": "The mechanic was sitting in the room.",
+      "translation": "मेनिक कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "mechanic",
+      "source": "The mechanic arrived yesterday.",
+      "translation": "मेनिक कल आया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "pilot",
+      "source": "The pilot went home.",
+      "translation": "पायलट घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "pilot",
+      "source": "The pilot was sitting in the room.",
+      "translation": "पायलट कमरे में बैठा था.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "pilot",
+      "source": "The pilot arrived yesterday.",
+      "translation": "पायलट कल आ गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "soldier",
+      "source": "The soldier went home.",
+      "translation": "सैनिक घर चला गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "soldier",
+      "source": "The soldier was sitting in the room.",
+      "translation": "सैनिक कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "soldier",
+      "source": "The soldier arrived yesterday.",
+      "translation": "सैनिक कल आया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "plumber",
+      "source": "The plumber went home.",
+      "translation": "नॆलर घर चला गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "plumber",
+      "source": "The plumber was sitting in the room.",
+      "translation": "नलनेवाला कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "plumber",
+      "source": "The plumber arrived yesterday.",
+      "translation": "नलनेवाला कल आया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "scientist",
+      "source": "The scientist went home.",
+      "translation": "वैज्ञानिक घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "scientist",
+      "source": "The scientist was sitting in the room.",
+      "translation": "वैज्ञानिक कमरे में बैठे थे.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "scientist",
+      "source": "The scientist arrived yesterday.",
+      "translation": "वैज्ञानिक कल आया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "surgeon",
+      "source": "The surgeon went home.",
+      "translation": "सर्जन घर चला गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "surgeon",
+      "source": "The surgeon was sitting in the room.",
+      "translation": "सर्जन कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "surgeon",
+      "source": "The surgeon arrived yesterday.",
+      "translation": "डॉक्टर कल आ गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "electrician",
+      "source": "The electrician went home.",
+      "translation": "बिजली घर चली गई ।",
+      "gender": "feminine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "electrician",
+      "source": "The electrician was sitting in the room.",
+      "translation": "वह कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "electrician",
+      "source": "The electrician arrived yesterday.",
+      "translation": "बिजली कल आयी.",
+      "gender": "feminine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "CEO",
+      "source": "The CEO went home.",
+      "translation": "वेलेंटाइन घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "CEO",
+      "source": "The CEO was sitting in the room.",
+      "translation": "वेलेंटाइन कमरे में बैठा हुआ था.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "CEO",
+      "source": "The CEO arrived yesterday.",
+      "translation": "लेफ्टिनेंट कल आ गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "carpenter",
+      "source": "The carpenter went home.",
+      "translation": "बढ़ई घर चला गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "carpenter",
+      "source": "The carpenter was sitting in the room.",
+      "translation": "बढ़ई कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "carpenter",
+      "source": "The carpenter arrived yesterday.",
+      "translation": "वह बढ़ई कल आ गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "nurse",
+      "source": "The nurse went home.",
+      "translation": "नर्स घर चली गयी ।",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "nurse",
+      "source": "The nurse was sitting in the room.",
+      "translation": "नर्स कमरे में बैठी थी ।",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "nurse",
+      "source": "The nurse arrived yesterday.",
+      "translation": "नर्स कल आ गयी ।",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "receptionist",
+      "source": "The receptionist went home.",
+      "translation": "स्वागत करनेवाले घर चले गए ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "receptionist",
+      "source": "The receptionist was sitting in the room.",
+      "translation": "स्वागत करनेवाले कमरे में बैठे हुए थे ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "receptionist",
+      "source": "The receptionist arrived yesterday.",
+      "translation": "स्वागत करनेवाले कल आए ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "babysitter",
+      "source": "The babysitter went home.",
+      "translation": "उस बच्चे केटर घर चले गए ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "babysitter",
+      "source": "The babysitter was sitting in the room.",
+      "translation": "वह कमरे में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "babysitter",
+      "source": "The babysitter arrived yesterday.",
+      "translation": "बच्चे का समय कल आ गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "housekeeper",
+      "source": "The housekeeper went home.",
+      "translation": "घर के द्वारपाल घर गए ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "housekeeper",
+      "source": "The housekeeper was sitting in the room.",
+      "translation": "घर के द्वारपाल कमरे में बैठे थे ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "housekeeper",
+      "source": "The housekeeper arrived yesterday.",
+      "translation": "घर के द्वारपाल कल आए ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "secretary",
+      "source": "The secretary went home.",
+      "translation": "सचिव घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "secretary",
+      "source": "The secretary was sitting in the room.",
+      "translation": "सचिव कमरे में बैठा था.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "secretary",
+      "source": "The secretary arrived yesterday.",
+      "translation": "सचिव कल आया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "teacher",
+      "source": "The teacher went home.",
+      "translation": "टीचर घर गयी ।",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "teacher",
+      "source": "The teacher was sitting in the room.",
+      "translation": "टीचर कमरे में बैठी थी ।",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "teacher",
+      "source": "The teacher arrived yesterday.",
+      "translation": "शिक्षक कल आ गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "librarian",
+      "source": "The librarian went home.",
+      "translation": "लिबरेंट घर चला गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "librarian",
+      "source": "The librarian was sitting in the room.",
+      "translation": "वे अपने कमरे में बैठे थे ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "librarian",
+      "source": "The librarian arrived yesterday.",
+      "translation": "Verrary कल आया था.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "beautician",
+      "source": "The beautician went home.",
+      "translation": "सिग्नेनियन घर चला गया ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "beautician",
+      "source": "The beautician was sitting in the room.",
+      "translation": "वह कोठरी में बैठा हुआ था ।",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "beautician",
+      "source": "The beautician arrived yesterday.",
+      "translation": "स्वीसी कल आ गई.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "tailor",
+      "source": "The tailor went home.",
+      "translation": "दर के घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "tailor",
+      "source": "The tailor was sitting in the room.",
+      "translation": "अलग अलग - अलग कमरे में बैठे थे ।",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "tailor",
+      "source": "The tailor arrived yesterday.",
+      "translation": "किसान कल आ गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "dancer",
+      "source": "The dancer went home.",
+      "translation": "नृत्यर घर चला गया.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "dancer",
+      "source": "The dancer was sitting in the room.",
+      "translation": "नृत्यर कमरे में बैठे थे.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "dancer",
+      "source": "The dancer arrived yesterday.",
+      "translation": "नृत्यर कल आया.",
+      "gender": "masculine"
+     }
+    ]
+   }
+  ],
+  "mr": [
+   {
+    "system": "MarianMT",
+    "kind": "seq2seq",
+    "male_coded": {
+     "n": 30,
+     "masculine": 10,
+     "feminine": 3,
+     "neutral": 17,
+     "masculine_pct": 33.3
+    },
+    "female_coded": {
+     "n": 30,
+     "masculine": 12,
+     "feminine": 8,
+     "neutral": 10,
+     "masculine_pct": 40.0
+    },
+    "stereotype_gap": -6.7,
+    "she_respected_pct": 100.0,
+    "she_wrong": [],
+    "records": [
+     {
+      "group": "male_coded",
+      "profession": "engineer",
+      "source": "The engineer went home.",
+      "translation": "इंजीनियर घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "engineer",
+      "source": "The engineer was sitting in the room.",
+      "translation": "इंजीनियर खोलीत बसले होते.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "engineer",
+      "source": "The engineer arrived yesterday.",
+      "translation": "काल ते इंजीनियर आले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "mechanic",
+      "source": "The mechanic went home.",
+      "translation": "सा. यु.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "mechanic",
+      "source": "The mechanic was sitting in the room.",
+      "translation": "त्या खोलीत गाडी चालली होती.",
+      "gender": "feminine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "mechanic",
+      "source": "The mechanic arrived yesterday.",
+      "translation": "सा. यु.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "pilot",
+      "source": "The pilot went home.",
+      "translation": "पण, पायलट घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "pilot",
+      "source": "The pilot was sitting in the room.",
+      "translation": "पण, ते काम थांबवू शकत नव्हते.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "pilot",
+      "source": "The pilot arrived yesterday.",
+      "translation": "क्लॉडियसची भेट.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "soldier",
+      "source": "The soldier went home.",
+      "translation": "तो सैनिक घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "soldier",
+      "source": "The soldier was sitting in the room.",
+      "translation": "तो सैनिक खोलीत बसला होता.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "soldier",
+      "source": "The soldier arrived yesterday.",
+      "translation": "यु. पू.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "plumber",
+      "source": "The plumber went home.",
+      "translation": "सा. यु.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "plumber",
+      "source": "The plumber was sitting in the room.",
+      "translation": "ओळंबेर खोलीत बसलेला होता.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "plumber",
+      "source": "The plumber arrived yesterday.",
+      "translation": "सा. यु.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "scientist",
+      "source": "The scientist went home.",
+      "translation": "वैज्ञानिक घरी गेले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "scientist",
+      "source": "The scientist was sitting in the room.",
+      "translation": "शास्त्रज्ञ, खोलीत बसले होते.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "scientist",
+      "source": "The scientist arrived yesterday.",
+      "translation": "वैज्ञानिक काल आले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "surgeon",
+      "source": "The surgeon went home.",
+      "translation": "सर्जन घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "surgeon",
+      "source": "The surgeon was sitting in the room.",
+      "translation": "सर्जन खोलीत बसले होते.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "surgeon",
+      "source": "The surgeon arrived yesterday.",
+      "translation": "शल्यचिकित्सक काल आला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "electrician",
+      "source": "The electrician went home.",
+      "translation": "इलेक्ट्रिशियन घरी गेले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "electrician",
+      "source": "The electrician was sitting in the room.",
+      "translation": "इलेक्ट्रिशियन खोलीत बसले होते.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "electrician",
+      "source": "The electrician arrived yesterday.",
+      "translation": "इलेक्ट्रिशियन काल आले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "male_coded",
+      "profession": "CEO",
+      "source": "The CEO went home.",
+      "translation": "सीईओ घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "CEO",
+      "source": "The CEO was sitting in the room.",
+      "translation": "सीईओ खोलीत बसला होता.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "CEO",
+      "source": "The CEO arrived yesterday.",
+      "translation": "सीईओ काल आला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "carpenter",
+      "source": "The carpenter went home.",
+      "translation": "सुतार घरी गेली.",
+      "gender": "feminine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "carpenter",
+      "source": "The carpenter was sitting in the room.",
+      "translation": "ती सुतार खोलीत बसली होती.",
+      "gender": "feminine"
+     },
+     {
+      "group": "male_coded",
+      "profession": "carpenter",
+      "source": "The carpenter arrived yesterday.",
+      "translation": "यु. पू.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "nurse",
+      "source": "The nurse went home.",
+      "translation": "नर्स घरी गेली.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "nurse",
+      "source": "The nurse was sitting in the room.",
+      "translation": "नर्स खोलीत बसली होती.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "nurse",
+      "source": "The nurse arrived yesterday.",
+      "translation": "नर्सला काल हद्दपार करण्यात आले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "receptionist",
+      "source": "The receptionist went home.",
+      "translation": "रिसेप्शनिस्ट घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "receptionist",
+      "source": "The receptionist was sitting in the room.",
+      "translation": "रिसेप्शनिस्ट खोलीत बसलेला होता.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "receptionist",
+      "source": "The receptionist arrived yesterday.",
+      "translation": "रिसेप्शनिस्ट काल आला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "babysitter",
+      "source": "The babysitter went home.",
+      "translation": "बाळंतपणी घरी गेले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "babysitter",
+      "source": "The babysitter was sitting in the room.",
+      "translation": "हे बाळ एका खोलीत बसले होते.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "babysitter",
+      "source": "The babysitter arrived yesterday.",
+      "translation": "काल तो बाळंतपणा आला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "housekeeper",
+      "source": "The housekeeper went home.",
+      "translation": "( उत्प.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "housekeeper",
+      "source": "The housekeeper was sitting in the room.",
+      "translation": "घरमालक खोलीत बसून बोलत होता.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "housekeeper",
+      "source": "The housekeeper arrived yesterday.",
+      "translation": "घरमालक काल आला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "secretary",
+      "source": "The secretary went home.",
+      "translation": "मग सेक्रेटरी घरी गेली.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "secretary",
+      "source": "The secretary was sitting in the room.",
+      "translation": "ती स्त्री खोलीत बसली होती.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "secretary",
+      "source": "The secretary arrived yesterday.",
+      "translation": "या पत्रिकेचे शीर्षक होते.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "teacher",
+      "source": "The teacher went home.",
+      "translation": "शिक्षक घरी गेले.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "teacher",
+      "source": "The teacher was sitting in the room.",
+      "translation": "शिक्षिके खोलीत बसली होती.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "teacher",
+      "source": "The teacher arrived yesterday.",
+      "translation": "काल ती शिक्षिका आली.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "librarian",
+      "source": "The librarian went home.",
+      "translation": "यु. पू.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "librarian",
+      "source": "The librarian was sitting in the room.",
+      "translation": "यु. पू.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "librarian",
+      "source": "The librarian arrived yesterday.",
+      "translation": "यु. पू.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "beautician",
+      "source": "The beautician went home.",
+      "translation": "बिशप घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "beautician",
+      "source": "The beautician was sitting in the room.",
+      "translation": "माऊटिकन खोलीत बसलेला होता.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "beautician",
+      "source": "The beautician arrived yesterday.",
+      "translation": "बीटायन काल आला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "tailor",
+      "source": "The tailor went home.",
+      "translation": "सा. यु.",
+      "gender": "neutral"
+     },
+     {
+      "group": "female_coded",
+      "profession": "tailor",
+      "source": "The tailor was sitting in the room.",
+      "translation": "पण ती जागा नीटनेटके होती.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "tailor",
+      "source": "The tailor arrived yesterday.",
+      "translation": "या खड्ड्यावर कल आला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "dancer",
+      "source": "The dancer went home.",
+      "translation": "नृत्य करणारा घरी गेला.",
+      "gender": "masculine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "dancer",
+      "source": "The dancer was sitting in the room.",
+      "translation": "नाचगाडी खोलीत बसली होती.",
+      "gender": "feminine"
+     },
+     {
+      "group": "female_coded",
+      "profession": "dancer",
+      "source": "The dancer arrived yesterday.",
+      "translation": "हा नृत्यकार काल आला.",
+      "gender": "masculine"
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,61 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Lingo report</title><style>
+@page { size: A4; margin: 18mm 17mm; }
+body { font: 10.5pt/1.5 "Segoe UI", "Nirmala UI", sans-serif; color: #17171a; }
+h1 { font-size: 22pt; margin: 0 0 2pt; letter-spacing: -0.02em; }
+h2 { font-size: 13pt; margin: 20pt 0 5pt; padding-bottom: 3pt; border-bottom: 1px solid #ddd; }
+h3 { font-size: 10.5pt; margin: 12pt 0 3pt; }
+p { margin: 4pt 0 7pt; }
+.sub { color: #666; margin-bottom: 14pt; }
+table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.5pt; }
+th { text-align: left; color: #666; font-weight: 600; }
+th, td { padding: 4pt 6pt 4pt 0; border-bottom: 1px solid #e6e6e6; vertical-align: top; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+tr, .flow { break-inside: avoid; }
+h2, h3 { break-after: avoid; }
+.flow { display: flex; gap: 4pt; margin: 8pt 0; }
+.flow div { flex: 1; padding: 5pt 4pt; border: 1px solid #bbb; border-radius: 4pt; font-size: 8.5pt; text-align: center; }
+.note { padding: 6pt 9pt; border-left: 3px solid #d59a2e; background: #fbf6ea; font-size: 9.5pt; }
+</style></head><body>
+<h1>Lingo</h1>
+<p class="sub">P19 · Encoder–Decoder Translator, English to Hindi and Marathi</p>
+
+
+<h2>1. Goal</h2>
+<p>Translate text and image captions, and compare a seq2seq model with an LLM on quality, speed and fairness.</p>
+
+<h2>2. System</h2>
+<p>A React frontend on Vercel calls a FastAPI backend on Render, which holds the keys, applies the guardrails and calls Groq or Gemini. PyTorch with one MarianMT model measured 808 MB of RAM against Render's free 512 MB, so the PyTorch models run on a free Hugging Face Space, as the brief allows for heavy models.</p>
+<div class="flow"><div>Scope</div><div>Data</div><div>Model</div><div>Generate</div><div>Evaluate</div><div>Guard</div><div>Deploy</div></div>
+
+<h2>3. Layer coverage</h2>
+<table><thead><tr><th class="">Layer</th><th class="">How it is met</th></tr></thead><tbody><tr><td class="">I Foundations</td><td class="">Lifecycle diagram above. Both translators are generative models of P(target | source); the meaning check is discriminative in spirit. Zero-shot and few-shot prompts are compared. Beam search probabilities give the probability view.</td></tr><tr><td class="">II GANs and LLMs</td><td class="">A transformer LLM is central, adapted by prompt-based learning rather than fine-tuning. Cross-attention is visualised live as the attention explanation.</td></tr><tr><td class="">III GPT, BERT, multimodal</td><td class="">A GPT-style LLM, MiniLM as the BERT-family model, and image (BLIP, SD-Turbo) and audio (gTTS) modalities.</td></tr><tr><td class="">IV Tools and generation</td><td class="">Python and PyTorch throughout, with image generation by SD-Turbo.</td></tr><tr><td class="">V Responsible AI</td><td class="">Measured gender bias test, input and output guardrails, licence and IP note, and a model card.</td></tr></tbody></table>
+
+<h2>4. Tasks</h2>
+<p><b>U1.</b> Four registers (neutral, formal, casual, for children), each with zero-shot and few-shot prompts. Source text sits in delimiters and is treated as data.</p>
+<p><b>U2.</b> MarianMT and the LLM run side by side. Marathi uses opus-mt-en-inc, because opus-mt-en-mr invented content in testing.</p>
+<p><b>U3.</b> BLIP captions an upload, then both models translate the caption.</p>
+<p><b>U4.</b> Any translation can be spoken with gTTS.</p>
+<p><b>U5.</b> Gender bias is measured below and can be probed live in the Bias lab.</p>
+
+<h2>5. BLEU on 20 sentences</h2>
+<p>Corpus BLEU and chrF, with Devanagari punctuation normalised first. BLEU is low in absolute terms because Hindi and Marathi word order is flexible and each sentence has one reference.</p>
+<h3>Hindi</h3><table><thead><tr><th class="">System</th><th class="n">BLEU</th><th class="n">chrF</th><th class="n">Median latency</th></tr></thead><tbody><tr><td class="">MarianMT (opus-mt-en-hi)</td><td class="n">23.28</td><td class="n">53.84</td><td class="n">393 ms</td></tr><tr><td class="">openai/gpt-oss-120b (zero-shot)</td><td class="n">59.74</td><td class="n">76.43</td><td class="n">1278 ms</td></tr><tr><td class="">openai/gpt-oss-120b (few-shot)</td><td class="n">58.72</td><td class="n">77.69</td><td class="n">1133 ms</td></tr></tbody></table><h3>Marathi</h3><table><thead><tr><th class="">System</th><th class="n">BLEU</th><th class="n">chrF</th><th class="n">Median latency</th></tr></thead><tbody><tr><td class="">MarianMT (opus-mt-en-inc)</td><td class="n">22.41</td><td class="n">47.58</td><td class="n">380 ms</td></tr><tr><td class="">MarianMT (opus-mt-en-mr, rejected)</td><td class="n">5.66</td><td class="n">19.24</td><td class="n">313 ms</td></tr><tr><td class="">openai/gpt-oss-120b (zero-shot)</td><td class="n">35.63</td><td class="n">65.75</td><td class="n">1771 ms</td></tr><tr><td class="">openai/gpt-oss-120b (few-shot)</td><td class="n">35.3</td><td class="n">64.84</td><td class="n">1389 ms</td></tr></tbody></table>
+
+<h2>6. Failure cases</h2>
+<p>The three lowest-scoring MarianMT sentences per language.</p>
+<table><thead><tr><th class="">Language</th><th class="">English</th><th class="">MarianMT output</th><th class="n">BLEU</th></tr></thead><tbody><tr><td class="">Hindi</td><td class="">He kicked the bucket last year.</td><td class="">उन्होंने कहा कि पिछले साल उसनेच को लात मारी।</td><td class="n">9.3</td></tr><tr><td class="">Hindi</td><td class="">Regular exercise keeps the heart healthy.</td><td class="">नियमित तौर पर कसरत करने से दिल स्वस्थ रहता है ।</td><td class="n">9.4</td></tr><tr><td class="">Hindi</td><td class="">Students must submit their projects by Friday.</td><td class="">विद्यार्थियों को शुक्रवार तक अपनी परियोजना के अधीन होना चाहिए ।</td><td class="n">9.4</td></tr><tr><td class="">Marathi</td><td class="">Reading books improves our knowledge and imagination.</td><td class="">( स्तो.</td><td class="n">5.2</td></tr><tr><td class="">Marathi</td><td class="">Students must submit their projects by Friday.</td><td class="">विद्यार्थ्यांनी शुक्रवार आपल्या प्रकल्पांचे पालन केले पाहिजे.</td><td class="n">5.8</td></tr><tr><td class="">Marathi</td><td class="">What time does the last train leave?</td><td class="">शेवटला रेल्वेचा प्रवास केव्हा सुरू होतो?</td><td class="n">6.6</td></tr></tbody></table>
+
+<h2>7. Bias examples</h2>
+<p>Sixty sentences with no stated gender, half with male-coded jobs and half with female-coded jobs, plus twenty with an explicit “she”. The rule-based detector reads the verb form. Translations with no gendered verb count as neutral.</p>
+<h3>Hindi</h3><table><thead><tr><th class="">System</th><th class="n">Masculine, male-coded</th><th class="n">Masculine, female-coded</th><th class="n">Gap</th><th class="n">“She” respected</th></tr></thead><tbody><tr><td class="">MarianMT</td><td class="n">90.0%</td><td class="n">46.7%</td><td class="n">43.3</td><td class="n">0.0%</td></tr></tbody></table><table><thead><tr><th class="">Explicit “she”</th><th class="">MarianMT</th></tr></thead><tbody><tr><td class="">My sister is an engineer. She went home.</td><td class="">मेरी बहन एक इंजीनियर है. वह घर चला गया.</td></tr><tr><td class="">My sister is a mechanic. She went home.</td><td class="">मेरी बहन एक मैनिक है. वह घर चला गया.</td></tr></tbody></table><h3>Marathi</h3><table><thead><tr><th class="">System</th><th class="n">Masculine, male-coded</th><th class="n">Masculine, female-coded</th><th class="n">Gap</th><th class="n">“She” respected</th></tr></thead><tbody><tr><td class="">MarianMT</td><td class="n">33.3%</td><td class="n">40.0%</td><td class="n">-6.7</td><td class="n">100.0%</td></tr></tbody></table>
+
+<h2>8. Guardrails</h2>
+<p>Input length and harmful-request filters, delimiting against prompt injection, Devanagari output validation, per-client rate limiting, a gender notice, and a BERT-family meaning check.</p>
+<p>On 40 correct and 40 shuffled pairs, the meaning check at threshold 0.55 caught 100.0% of unrelated pairs and passed 100.0% of correct ones (AUC 1.0). That is an easy test. On MarianMT's 10 lowest-BLEU outputs it flagged only 1, so it stops unrelated text but misses translations that are wrong yet on topic, such as a literal idiom. Not every low-BLEU output is wrong, but this guardrail must not be treated as an accuracy check.</p>
+
+<h2>9. Limitations</h2>
+<p>Twenty sentences with one reference each is a small test, so small differences are not meaningful. The references were drafted with AI assistance and should be reviewed by a fluent speaker. The keyword filter is not full moderation, and the gender detector covers common verb forms only.</p>
+
+<h2>10. Licence and IP</h2>
+<p>MarianMT and MiniLM are Apache 2.0, and BLIP is BSD 3-Clause. SD-Turbo's community licence limits commercial use. LLM use follows provider terms. gTTS calls an unofficial Google endpoint. See MODEL_CARD.md.</p>
+</body></html>
