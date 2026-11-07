@@ -1,0 +1,5 @@
+# Everything for running the models, evaluations and tests locally.
+-r requirements.txt
+-r ml_worker/requirements.txt
+sacrebleu
+pytest
