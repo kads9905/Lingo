@@ -24,11 +24,12 @@ Encode-decode/
 │   └── src/
 ├── backend/               Deploy to Render (rootDir: backend, set in render.yaml)
 │   ├── app/               FastAPI app, prompts, guardrails, LLM calls
-│   ├── ml_worker/         PyTorch models. Deploy this folder to a Hugging Face Space
+│   ├── ml_worker/         PyTorch models, run by start_worker.py
 │   ├── eval/              BLEU, bias and guardrail evaluations
 │   ├── data/              The 20 reference sentences
 │   ├── results/           Measured results, shown on the Results page
 │   ├── tests/
+│   ├── start_worker.py    Runs the models on this computer behind a Cloudflare tunnel
 │   └── requirements.txt   Render installs only this light list
 ├── docs/                  Report, deployment guide, demo script
 ├── render.yaml            Render blueprint
@@ -41,10 +42,10 @@ Encode-decode/
 Vercel (frontend)  ──▶  Render (backend)  ──▶  Groq / Gemini
                              │
                              ├──▶  gTTS
-                             └──▶  Hugging Face Space (ml_worker)
+                             └──▶  Model worker on a laptop, through a Cloudflare tunnel
 ```
 
-The backend holds the API keys and runs the guardrails. PyTorch with one MarianMT model measured 808 MB of RAM, which does not fit Render's free 512 MB instance, so the models run on a free Hugging Face Space. If `ML_WORKER_URL` is empty, the backend runs them in-process instead, which suits local use or a paid Render plan with at least 4 GB.
+The backend holds the API keys and runs the guardrails. PyTorch with one MarianMT model measured 808 MB of RAM, which does not fit Render's free 512 MB instance, and Hugging Face now charges for Docker Spaces, so the models run on a laptop behind a free Cloudflare tunnel. If `ML_WORKER_URL` is empty, the backend runs them in-process instead, which suits local use or a paid Render plan with at least 4 GB.
 
 ## Deploy
 

@@ -1,6 +1,6 @@
 # Deployment guide
 
-Everything below is free. You need accounts on GitHub, Groq (or Google AI Studio), Hugging Face, Render and Vercel. Deploy in this order, because each step needs the URL from the one before.
+Everything below is free. You need accounts on GitHub, Groq (or Google AI Studio), Render and Vercel, and the free cloudflared tool on your laptop. Deploy in this order, because each step needs the URL from the one before.
 
 Choose a long random `WORKER_KEY` and keep it for steps 2 and 3:
 
@@ -17,25 +17,27 @@ git remote add origin https://github.com/YOUR_NAME/lingo.git
 git push -u origin main
 ```
 
-## 2. Model worker on Hugging Face Spaces
+## 2. Model worker on your laptop
 
-1. Go to huggingface.co/new-space. Name it `lingo-models`, choose the **Docker** SDK and the free **CPU basic** hardware.
-2. In **Settings → Variables and secrets**, add a secret named `WORKER_KEY`.
-3. Create a write token at huggingface.co/settings/tokens, then upload the worker:
+Hugging Face now charges for Docker Spaces, so the PyTorch models run on your own computer and are reached through a free Cloudflare tunnel.
 
-```bash
-pip install -U huggingface_hub
-```
+Install the tunnel tool once:
 
 ```bash
-hf auth login
+winget install --id Cloudflare.cloudflared
 ```
+
+Add a `WORKER_KEY` line to `backend/.env` with the value you generated above. Then, from the `backend` folder, start the worker:
 
 ```bash
-hf upload YOUR_NAME/lingo-models backend/ml_worker . --repo-type space
+..\.venv\Scripts\python start_worker.py
 ```
 
-The first build takes around 10 to 20 minutes. It is ready when `https://YOUR_NAME-lingo-models.hf.space/health` returns `{"status":"ok"}`.
+It loads the models, opens the tunnel and prints an `ML_WORKER_URL` such as `https://example-words.trycloudflare.com`. Keep the window open.
+
+**The tunnel address changes every time the script starts**, so update `ML_WORKER_URL` on Render each time, then redeploy.
+
+If you have a Hugging Face PRO subscription, you can instead upload `backend/ml_worker` as a Docker Space and use its permanent address.
 
 ## 3. Backend on Render
 
@@ -46,7 +48,7 @@ The first build takes around 10 to 20 minutes. It is ready when `https://YOUR_NA
 | --- | --- |
 | `GROQ_API_KEY` | Your Groq key |
 | `GEMINI_API_KEY` | Your Gemini key, or leave blank |
-| `ML_WORKER_URL` | `https://YOUR_NAME-lingo-models.hf.space` |
+| `ML_WORKER_URL` | The address printed by `start_worker.py` |
 | `WORKER_KEY` | The value from the start of this guide |
 | `ALLOWED_ORIGINS` | Leave as `http://localhost:5173` for now |
 
@@ -65,7 +67,9 @@ Set `ALLOWED_ORIGINS` on Render to your Vercel URL, for example `https://lingo.v
 
 ## Before the live demo
 
-Free services sleep: Render after 15 minutes idle, and the Space after a longer period. **Open the app about five minutes before presenting** and run one translation, one photo and one image so everything is awake and loaded.
+1. Keep the laptop awake and online, and run `start_worker.py`.
+2. Copy its new `ML_WORKER_URL` into Render and choose **Save, rebuild, and deploy**.
+3. Render's free service sleeps after 15 minutes idle. **Open the app about five minutes before presenting** and run one translation, one photo and one image so everything is awake.
 
 As a backup, run the app locally with the commands in the README.
 
@@ -73,8 +77,9 @@ As a backup, run the app locally with the commands in the README.
 
 | Symptom | Cause |
 | --- | --- |
-| Status stays on "Starting" | The Space is asleep or building, or `ML_WORKER_URL` is wrong |
+| Status stays on "Starting" | Render is waking up, or the worker script is not running |
 | "Could not reach the server" | `ALLOWED_ORIGINS` or `VITE_API_URL` is wrong |
 | LLM shows "No LLM key is configured" | The key is missing on Render |
 | "groq returned HTTP 404" | The model was retired. Set `GROQ_MODEL` on Render to a current one |
-| "The model worker is unavailable" | `WORKER_KEY` differs between Render and the Space |
+| "The model worker is unavailable" | The worker script stopped, the tunnel address changed, or `WORKER_KEY` differs between Render and `backend/.env` |
+| "The translation models are not connected" | `ML_WORKER_URL` is missing on Render, or Render was saved without redeploying |
