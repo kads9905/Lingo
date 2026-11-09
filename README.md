@@ -2,7 +2,9 @@
 
 English to Hindi and Marathi translation that compares an encoder–decoder model with an LLM, for typed text and for image captions. Project P19.
 
-**Live app:** add your Vercel URL here after deploying.
+**Live app:** [encode-decode-mq45-three.vercel.app](https://encode-decode-mq45-three.vercel.app/)
+
+The Translate tab's LLM side always works. MarianMT, Photo and Imagine also need the model worker, which runs on the author's laptop, so they respond only while it is running.
 
 ## What it does
 
@@ -109,3 +111,7 @@ Results go to `backend/results/`, where the Results page reads them. The last co
 ```
 
 See [MODEL_CARD.md](MODEL_CARD.md) for limits and licences.
+
+## Author
+
+Kadambari Yewale · Roll No. 19 · Enrollment No. ADT23SOCB0498
